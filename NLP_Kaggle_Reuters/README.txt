@@ -1,7 +1,7 @@
 To test Flask app:
 
-docker build --tag=omni .
-docker run -p 5000:5000 --network="host" omni
+docker build --tag=flask .
+docker run -p 5000:5000 --network="host" flask
 
 In another terminal:
 
