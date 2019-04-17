@@ -1,2 +1,2 @@
 # my_challenges
-Repository with challegnes I have taken
+Repository with challenges I have taken
