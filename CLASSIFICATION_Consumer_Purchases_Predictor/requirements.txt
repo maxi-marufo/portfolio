@@ -1,4 +1,0 @@
-pandas
-numpy
-keras
-scikit-learn
