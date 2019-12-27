@@ -10,7 +10,7 @@ WORKDIR /dir
 COPY . /dir
 
 # Install any needed packages specified in requirements.txt
-pip install -r requirements.txt
+RUN pip install -r requirements.txt
 
 CMD ["jupyter", "notebook", "--ip", "0.0.0.0", "--no-browser", "--allow-root", "--port=8989", "--NotebookApp.token=''"]
 

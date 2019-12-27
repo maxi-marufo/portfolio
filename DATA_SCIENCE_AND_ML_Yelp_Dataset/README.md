@@ -25,7 +25,7 @@ Open the notebook.
 
   - if you don't have gpu:
 
-        docker build --build-arg --tag=img .
+        docker build --tag=img .
 
   - if you have gpu:
 
