@@ -6,7 +6,8 @@ HOW TO RUN THE NOTEBOOK:
 
 If you want to run the notebook by yourself, please copy and unzip the files from the link below into this directory.
 https://drive.google.com/open?id=1tgL8Lj43_Mv31wGcZeOID1JQTY_efRn9
-You should also donwload this GloVe file and unzip it as well:
+
+You should also download this GloVe file and unzip it as well:
 http://nlp.stanford.edu/data/glove.6B.zip
 
 
