@@ -15,11 +15,17 @@ next 12 months.
 
 The project consist of a [data.csv](https://github.com/maxi-marufo/challenges/blob/master/Bank_Data/data.csv)
 file, which is our dataset, and a [notebook](https://github.com/maxi-marufo/challenges/blob/master/Bank_Data/notebook.ipynb) where we can run the code and see the results.
+
 If you don't want to see the results but run it as a script, you can use
 the [notebook.py](https://github.com/maxi-marufo/challenges/blob/master/Bank_Data/notebook.py)
 script.
-The libraries dependencies are listed in [requirements.txt](https://github.com/maxi-marufo/challenges/blob/master/Bank_Data/requirements.txt
+
+The libraries dependencies are listed in [requirements.txt](https://github.com/maxi-marufo/challenges/blob/master/Bank_Data/requirements.txt)
+
 You can also run the notebook inside Docker. To build the image, run:
+
 `docker build --tag=bank_data .`
+
 And then run the container:
+
 `docker run -p 8989:8989 bank_data`
