@@ -15,7 +15,7 @@
 # ---
 
 # %% [markdown]
-# # **Data Science Project: Bank dataset**
+# # **Data Science Projet: Bank dataset**
 
 # %% [markdown]
 # In this dataset, we have data on 10.000 (fictitious) customers of a
@@ -437,29 +437,18 @@ print(
 # %%
 # Helper functions and variables
 
-def print_grid_search_metrics(grid):
-    """
-    Prints the parameter setting that gave the best results on the hold
-    out data, and the Train and Dev Balanced Accuracy metrics (mean and
-    2*std, so the range is about 95% of confidence)
-
-    Parameters
-    ----------
-    grid : sklearn.model_selection.GridSearchCV
-        An object of that type which is cloned for each validation.
-
-    """
-    print("Best parameters set found: ", grid.best_params_)
+def print_grid_search_metrics(grid_lr):
+    print("Best parameters set found: ", grid_lr.best_params_)
     print(
         "\nTrain Balanced Accuracy: %0.2f (+/-%0.02f)" % (
-            grid.cv_results_['mean_train_score'][grid.best_index_],
-            grid.cv_results_['std_train_score'][grid.best_index_] * 2
+            grid_lr.cv_results_['mean_train_score'][grid_lr.best_index_],
+            grid_lr.cv_results_['std_train_score'][grid_lr.best_index_] * 2
             )
             )
     print(
         "Dev Balanced Accuracy: %0.2f (+/-%0.02f)" % (
-            grid.cv_results_['mean_test_score'][grid.best_index_],
-            grid.cv_results_['std_test_score'][grid.best_index_] * 2
+            grid_lr.cv_results_['mean_test_score'][grid_lr.best_index_],
+            grid_lr.cv_results_['std_test_score'][grid_lr.best_index_] * 2
             )
             )
 
