@@ -11,6 +11,10 @@ next 12 months.
 2. How are these variables related to each other?
 3. Which are the top k customers at highest risk of leaving the bank?
 
+## Blog
+
+You can find a post in Medium describing the results of this project [here](https://medium.com/@maximiliano.marufo/this-is-what-a-data-scientist-can-do-with-your-data-588207deb0db)
+
 ## Project Overview
 
 The project consist of a [data.csv](https://github.com/maxi-marufo/challenges/blob/master/Bank_Data/data.csv)
