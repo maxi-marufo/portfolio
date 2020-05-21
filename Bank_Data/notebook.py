@@ -639,7 +639,7 @@ plot_learning_curve(
 # Random Forest
 
 params = dict(
-    n_estimators=list(range(10, 100, 10)),
+    n_estimators=list(range(10, 110, 10)),
     max_depth=list(range(2, 10, 1))
     )
 
@@ -668,9 +668,9 @@ print_grid_search_metrics(grid_rf)
 # So the best model trained with random forest is the one with this
 # parameters:
 #
-# {'max_depth': 6, 'n_estimators': 30}
+# {'max_depth': 7, 'n_estimators': 90}
 #
-# Again, given that the n_estimators limits were between 10 and 100, and
+# Again, given that the n_estimators limits were between 10 and 110, and
 # the max_depth limits between 2 and 10, we could think that we have
 # found a local minimum between these limits and don't need to train
 # more models beyond them.
@@ -690,7 +690,7 @@ plot_learning_curve(
 
 # %% [markdown]
 # Both the validation score and the training score converge to a value
-# (around 0.79) with increasing size of the training set, therefore we
+# (around 0.80) with increasing size of the training set, therefore we
 # will not benefit much from more training data. We will probably have
 # to use an estimator or a parametrization of the current estimator that
 # can learn more complex concepts (i.e. has a lower bias).
@@ -916,7 +916,7 @@ plot_learning_curve(
 # Both the validation score and the training are increasing with the
 # size of the training set, therefore we will probably benefit from more
 # training data or more epochs. However, we will now select our current
-# best model so we can continue with the rest of the challenge.
+# best model so we can continue with the rest of the tasks.
 
 # %% [markdown]
 # ### Choose the best model, calibrate it and get test results
@@ -1091,13 +1091,14 @@ probas
 cal_clf.classes_
 
 # %% [markdown]
-# So we need to sort the probabilities:
+# So we need to sort the probabilities of being True in ascending order:
 
 # %%
 indexes = np.argsort(probas[:, 1], axis=0)
 
 # %%
 ordered_leaving_customers = dataset.iloc[indexes, 0:2]
+ordered_leaving_customers['retain_probability'] = probas[indexes][:, 1]
 ordered_leaving_customers
 
 # %% [markdown]
