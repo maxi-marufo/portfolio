@@ -10,8 +10,12 @@ def load_data(messages_filepath, categories_filepath):
     output:
         df: The merged dataset
     '''
+
+    # Read messages and categories data
     messages = pd.read_csv(messages_filepath)
     categories = pd.read_csv(categories_filepath)
+
+    # Merge the two dataframes
     df = pd.merge(messages, categories, left_on='id', right_on='id', how='outer')
     return df
 
@@ -23,17 +27,28 @@ def clean_data(df):
     output:
         df: Dataset after cleaning.
     '''
-    categories = df.categories.str.split(';', expand = True)
+
+    # Create column based on values in categories column
+    categories = df.categories.str.split(';', expand=True)
+
+    # Rename the columns with the proper name
     row = categories.loc[0]
     category_colnames = row.apply(lambda x: x[:-2]).values.tolist()
     categories.columns = category_colnames
     categories.related.loc[categories.related == 'related-2'] = 'related-1'
+
+    # Clean the value in categories
     for column in categories:
+        # set each value to be the last character of the string
         categories[column] = categories[column].astype(str).str[-1]
+        # convert column from string to numeric
         categories[column] = pd.to_numeric(categories[column])
-    df.drop('categories', axis = 1, inplace = True)
-    df = pd.concat([df, categories], axis = 1)
-    df.drop_duplicates(subset = 'id', inplace = True)
+
+    # Replace the original categories column with the new one and drop
+    # duplicates
+    df.drop('categories', axis=1, inplace=True)
+    df = pd.concat([df, categories], axis=1)
+    df.drop_duplicates(subset='id', inplace=True)
     return df
 
 
@@ -45,6 +60,8 @@ def save_data(df, database_filename):
     output:
         df: Dataset after cleaning.
     '''
+
+    # Create sqlite engine and save the dataframe with the name messages
     engine = create_engine('sqlite:///' + database_filename)
     df.to_sql('FigureEight', engine, index=False, if_exists='replace')
     pass  
