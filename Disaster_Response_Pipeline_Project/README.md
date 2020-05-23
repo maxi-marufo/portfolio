@@ -48,6 +48,6 @@ app also displays visualizations of the data.
 ![ScreenShot](img.png)
 
 ## Example
-Type in: We have a lot of problem at Delma 75 Avenue Albert Jode, those people need water and food.
+Type in: We are more than 50 people sleeping on the street. Please help us find tent, food.
 
 ![Example](Example.png)
