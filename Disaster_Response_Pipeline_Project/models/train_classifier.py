@@ -22,6 +22,8 @@ from sklearn.ensemble import RandomForestClassifier
 
 def load_data(database_filepath):
     '''
+    Loads the database from the given filepath and process
+    them as X, y and category_names.
     input:
         database_filepath: File path where sql database was saved.
     output:
@@ -29,25 +31,35 @@ def load_data(database_filepath):
         Y: Training target.
         category_names: Categorical name for labeling.
     '''
-    engine = create_engine('sqlite:///'+ database_filepath)
+
+    # Read the table as pandas dataframe
+    engine = create_engine('sqlite:///' + database_filepath)
     df = pd.read_sql_table('FigureEight', engine)
+
+    # Split the dataframe into x and y
     X = df.message.values
     Y = df[df.columns[4:]].values
+
+    # Get the label names
     category_names = list(df.columns[4:])
     return X, Y, category_names
 
 
 def tokenize(text):
     '''
+    Tokenizes and and lemmatizes the text messages.
     input:
         text: Message data for tokenization.
     output:
         clean_tokens: Result list after tokenization.
     '''
+
+    # Tokenize the string text and initiate the lemmatizer
     text = re.sub(r"[^a-zA-Z0-9]", " ", text.lower())
     tokens = word_tokenize(text)
     lemmatizer = WordNetLemmatizer()
     
+    # Lemmatize each word in tokens
     clean_tokens = []
     for tok in tokens:
         clean_tok = lemmatizer.lemmatize(tok).lower().strip(),
@@ -56,26 +68,47 @@ def tokenize(text):
 
 def build_model():
     '''
+    Builds a model, create pipeline, hypertuning as well as gridsearchcv.
     input:
         None
     output:
         cv: GridSearch model result.
     '''
+
+    # Create a pipeline
+    #pipeline = Pipeline([
+    #    ('vect', CountVectorizer(tokenizer=tokenize)),
+    #    ('tfidf', TfidfTransformer()),
+    #    ('clf', MultiOutputClassifier(
+    #        RandomForestClassifier(class_weight='balanced', random_state=0)
+    #        ))
+    #])
     pipeline = Pipeline([
         ('vect', CountVectorizer(tokenizer=tokenize)),
         ('tfidf', TfidfTransformer()),
-        ('clf', MultiOutputClassifier(OneVsRestClassifier(LinearSVC(random_state = 0))))
+        ('clf', MultiOutputClassifier(
+            OneVsRestClassifier(LinearSVC(random_state=0))
+            ))
     ])
+
+    # Find the optimal model using GridSearchCV
+    #parameters = {
+    #            'tfidf__smooth_idf': [True, False],
+    #            'clf__estimator__n_estimators': [20, 100],
+    #            'clf__estimator__max_depth': [2, 10]
+    #         }
     parameters = {
                 'tfidf__smooth_idf':[True, False],
                 'clf__estimator__estimator__C': [1, 2, 5]
              }
-    cv = GridSearchCV(pipeline, param_grid=parameters, scoring='precision_samples', cv = 5)
+
+    cv = GridSearchCV(pipeline, param_grid=parameters, cv=5)
     return cv
 
 
 def evaluate_model(model, X_test, Y_test, category_names):
     '''
+    Evaluates a model.
     input:
         model: GridSearch model
         X_test: Test set inputs 
@@ -84,17 +117,25 @@ def evaluate_model(model, X_test, Y_test, category_names):
     output:
         None
     '''
+    # Predict the given X_test
     Y_pred = model.predict(X_test)
+
+    # Create the report based on the Y_pred
     for idx, category in enumerate(category_names):
         print(category)
         print(classification_report(Y_test[:,idx], Y_pred[:,idx]))
     print('---------------------------------')
     for i in range(Y_test.shape[1]):
-        print('%25s accuracy : %.2f' %(category_names[i], accuracy_score(Y_test[:,i], Y_pred[:,i])))
+        print(
+            '%25s accuracy : %.2f' %(
+                category_names[i], accuracy_score(Y_test[:,i], Y_pred[:,i])
+                )
+                )
 
 
 def save_model(model, model_filepath):
     '''
+    Saves the model.
     input:
         model: GridSearch model
         model_filepath: Path to save the model file
