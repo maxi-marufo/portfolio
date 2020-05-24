@@ -23,6 +23,11 @@ more about it.
   notebooks: Data Exploration, Feature Engineering and Train and Deploy
   in SageMaker
 
+* [Movie Recommendations Engine](https://github.com/maxi-marufo/portfolio/blob/master/Movie_Recommendations_Engine)
+  This project builds Knowledge Based, Content Based and Collaborative
+  Filtering Based (both Neighborhood Based and Model Based)
+  Recommendations Engines using the [MovieTweetings](http://crowdrec2013.noahlab.com.hk/papers/crowdrec2013_Dooms.pdf) dataset.
+
 * [Disaster Response Pipeline Project](https://github.com/maxi-marufo/portfolio/tree/master/Disaster_Response_Pipeline_Project)
   In this project, we will analyze messages sent during disasters to
   build a model for an API that classifies disaster messages. It creates
