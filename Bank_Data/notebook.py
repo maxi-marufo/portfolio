@@ -133,9 +133,10 @@ refactored_data = pd.get_dummies(
 # %% [markdown]
 # ### Finding correlation
 # We will look for correlation in the variables. We will use 3 different
-# methods of correlation measurements, one that measures linear
-# correlation (Pearson) and two for a more general correlation coefficient
-# (Kendall and Spearman)
+# methods of correlation measurements:
+# 1. *Pearson correlation coefficient*: measures how much linear is the correlation between two variables.
+# 2. *Spearman correlation coefficient*: measures how well the relationship between two variables can be described using a monotonic function.
+# 3. *Kendall correlation coefficient*: measures how similar would be the rank orderings between two variables.
 
 # %%
 corr_methods = ['pearson', 'kendall', 'spearman']
