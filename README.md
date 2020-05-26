@@ -28,6 +28,12 @@ more about it.
   Filtering Based (both Neighborhood Based and Model Based)
   Recommendations Engines using the [MovieTweetings](http://crowdrec2013.noahlab.com.hk/papers/crowdrec2013_Dooms.pdf) dataset.
 
+* [Recommendations Engine with IBM dataset](https://github.com/maxi-marufo/portfolio/blob/master/Recommendations_Engine_with_IBM_dataset)
+  This project builds a blend of a Knowledge and a Collaborative
+  Filtering Based Recommendation Engine, as the dataset used does not
+  have any reviews or ratings, but logs of views of articles by
+  different users.
+
 * [Disaster Response Pipeline Project](https://github.com/maxi-marufo/portfolio/tree/master/Disaster_Response_Pipeline_Project)
   In this project, we will analyze messages sent during disasters to
   build a model for an API that classifies disaster messages. It creates
