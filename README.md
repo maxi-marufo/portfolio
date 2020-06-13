@@ -49,13 +49,11 @@ more about it.
   next 12 months.
 
 * [Variational Autoencoders with TensorFlow](https://github.com/maxi-marufo/portfolio/tree/master/VAEs_TensorFlow)
-  Part of the [Creative Applications of Deep Learning w/ Tensorflow](https://www.kadenze.com/courses/creative-applications-of-deep-learning-with-tensorflow/info) online course,
-  in this notebook we build a Variational Autoencoder (a type of generative
+  In this notebook we build a Variational Autoencoder (a type of generative
   model) and explore its latent/hidden representations.
 
 * [Visualizing Representations with TensorFlow](https://github.com/maxi-marufo/portfolio/tree/master/Visualizing_Representations_TensorFlow)
-  Part of the [Creative Applications of Deep Learning w/ Tensorflow](https://www.kadenze.com/courses/creative-applications-of-deep-learning-with-tensorflow/info) online course,
-  in this notebook we walk through visualizing the gradients of a trained
+  In this notebook we walk through visualizing the gradients of a trained
   convolutional networks (Inception, VGG, Illustration2Vec), and also explore
   Deep Dream and Style Net.
 
