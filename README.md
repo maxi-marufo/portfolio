@@ -53,7 +53,7 @@ more about it.
   model) and explore its latent/hidden representations.
 
 * [Visualizing Representations with TensorFlow](https://github.com/maxi-marufo/portfolio/tree/master/Visualizing_Representations_TensorFlow)
-  In this notebook we walk through visualizing the gradients of a trained
+  In this notebook we walk through visualizing the gradients of trained
   convolutional networks (Inception, VGG, Illustration2Vec), and also explore
   Deep Dream and Style Net.
 
