@@ -48,10 +48,16 @@ more about it.
   predict which of these customers we will be able to retain over the
   next 12 months.
 
-* [AWS ETL and ML Pipeline](https://github.com/maxi-marufo/portfolio/tree/master/AWS_DS_ML_Pipeline)
-  Notebooks for Data preparation, model development, ETLs, model training,
-  inference pipelines and batch transformations, using AWS Glue, Athena
-  and SageMaker servicies.
+* [Variational Autoencoders with TensorFlow](https://github.com/maxi-marufo/portfolio/tree/master/VAEs_TensorFlow)
+  Part of the [Creative Applications of Deep Learning w/ Tensorflow](https://www.kadenze.com/courses/creative-applications-of-deep-learning-with-tensorflow/info) online course,
+  in this notebook we build a Variational Autoencoder (a type of generative
+  model) and explore its latent/hidden representations.
+
+* [Visualizing Representations with TensorFlow](https://github.com/maxi-marufo/portfolio/tree/master/Visualizing_Representations_TensorFlow)
+  Part of the [Creative Applications of Deep Learning w/ Tensorflow](https://www.kadenze.com/courses/creative-applications-of-deep-learning-with-tensorflow/info) online course,
+  in this notebook we walk through visualizing the gradients of a trained
+  convolutional networks (Inception, VGG, Illustration2Vec), and also explore
+  Deep Dream and Style Net.
 
 * [Fashion MNIST](https://github.com/maxi-marufo/portfolio/blob/master/Fashion_MNIST/notebook.ipynb)
   Uses the Fashion MNIST dataset from Zalando to build a CNN using Keras.
@@ -59,3 +65,8 @@ more about it.
 * [Kaggle Reuters](https://github.com/maxi-marufo/portfolio/blob/master/Kaggle_Reuters/Kaggle_Reuters_Challenge.ipynb)
   Uses NLP and ML to classify texts into categories. The domain is Topic
   modeling and focused on newspaper articles. It also does EDA.
+
+* [AWS ETL and ML Pipeline](https://github.com/maxi-marufo/portfolio/tree/master/AWS_DS_ML_Pipeline)
+  Notebooks for Data preparation, model development, ETLs, model training,
+  inference pipelines and batch transformations, using AWS Glue, Athena
+  and SageMaker servicies.
