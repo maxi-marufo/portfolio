@@ -3,8 +3,8 @@
 This is a repository with some of the challenges, mini-projects, course
 homeworks, tutorials, etc, that I've done.
 
-Each one is contained in a sub-directory, and has a README file describing a bit
-more about it.
+Each one is contained in a sub-directory, and has a README file or a Notebook
+describing a bit more about it.
 
 ## Projects
 
@@ -51,6 +51,10 @@ more about it.
 * [Variational Autoencoders with TensorFlow](https://github.com/maxi-marufo/portfolio/tree/master/VAEs_TensorFlow):
   In this notebook we build a Variational Autoencoder (a type of generative
   model) and explore its latent/hidden representations.
+
+* [Generative adversarial networks with TensorFlow](https://github.com/maxi-marufo/portfolio/tree/master/GANs_TensorFlow):
+  In this notebook we build different types of Generative adversarial networks
+  (another type of generative models): GAN, DCGAN and VAEGAN.
 
 * [Visualizing Representations with TensorFlow](https://github.com/maxi-marufo/portfolio/tree/master/Visualizing_Representations_TensorFlow):
   In this notebook we walk through visualizing the gradients of trained
