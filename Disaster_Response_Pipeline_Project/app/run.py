@@ -1,29 +1,40 @@
 import json
+import joblib
 import plotly
 import pandas as pd
 import numpy as np
 
+import re
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 
 from flask import Flask
-from flask import render_template, request, jsonify
+from flask import render_template, request
 from plotly.graph_objs import Bar
-from sklearn.externals import joblib
 from sqlalchemy import create_engine
 
 
 app = Flask(__name__)
 
 def tokenize(text):
+    '''
+    Tokenizes and and lemmatizes the text messages.
+    input:
+        text: Message data for tokenization.
+    output:
+        clean_tokens: Result list after tokenization.
+    '''
+
+    # Tokenize the string text and initiate the lemmatizer
+    text = re.sub(r"[^a-zA-Z0-9]", " ", text.lower())
     tokens = word_tokenize(text)
     lemmatizer = WordNetLemmatizer()
 
+    # Lemmatize each word in tokens
     clean_tokens = []
     for tok in tokens:
-        clean_tok = lemmatizer.lemmatize(tok).lower().strip()
+        clean_tok = lemmatizer.lemmatize(tok).lower().strip(),
         clean_tokens.append(clean_tok)
-
     return clean_tokens
 
 # load data

@@ -3,6 +3,7 @@ import sys
 import pandas as pd
 from sqlalchemy import create_engine
 import pickle
+import joblib
 
 import re
 import nltk
@@ -142,8 +143,7 @@ def save_model(model, model_filepath):
     output:
         None
     '''
-    with open(model_filepath, 'wb') as file:
-        pickle.dump(model.best_estimator_, file)
+    joblib.dump(model, model_filepath)
 
 
 def main():
